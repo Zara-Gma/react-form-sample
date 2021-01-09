@@ -29,7 +29,7 @@ export const Step4 = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Step 2</h2>
+      <h2>Veteran Status</h2>
 
       <label htmlFor="veteranStatus">Veteran Status</label>
       <select name="SecondPage" id="" ref={register}>
