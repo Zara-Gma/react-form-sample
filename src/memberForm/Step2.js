@@ -8,6 +8,7 @@ import * as yup from "yup";
 import "./Step2.css";
 
 // TODO Next button not working!​
+// Either use the Form from components or not!
 
 const schema = yup.object().shape({
   age: yup
@@ -49,7 +50,7 @@ export const Step2 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step3");
+    history.push("./Step3.js");
     setValues(data);
   };
 
@@ -117,6 +118,7 @@ This information will only help us provide the best resources for you and the in
           ref={register({ required: "Last name is required.", minLength: 3, maxLength: 30 })}
         />
         <ErrorMessage errors={errors} name="lastName" as="p" />
+        <button>Next</button>
       </form>
     </div>
 
