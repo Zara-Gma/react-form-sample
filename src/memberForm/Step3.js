@@ -23,12 +23,12 @@ const schema = yup.object().shape({
 
 const normalizePhoneNumber = (value) => {
   const phoneNumber = parsePhoneNumberFromString(value)
-  if(!phoneNumber){
+  if (!phoneNumber) {
     return value
   }
 
   return (
-    phoneNumber.formatInternational() 
+    phoneNumber.formatInternational()
   );
 };
 
@@ -54,7 +54,7 @@ export const Step3 = () => {
   return (
     <MainContainer>
       <Typography component="h2" variant="h5">
-         Example dependent field
+        Example dependent field
       </Typography>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input

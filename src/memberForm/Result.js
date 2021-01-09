@@ -93,7 +93,7 @@ export const Result = () => {
         {files && (
           <>
             <Typography component="h2" variant="h5">
-               Files
+              Files
             </Typography>
             <List>
               {files.map((f, index) => (

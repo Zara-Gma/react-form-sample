@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Form = ({children, ...props}) => {
+export const Form = ({ children, ...props }) => {
   const styles = useStyles();
 
   return (

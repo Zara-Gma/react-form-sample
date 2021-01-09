@@ -6,9 +6,9 @@ import { useData } from "../DataContext";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-veteranStatus: yup
-        // .bool()
-        // .required('Please indicate your communications preference')
+  veteranStatus: yup
+  // .bool()
+  // .required('Please indicate your communications preference')
 })
 
 export const Step4 = () => {

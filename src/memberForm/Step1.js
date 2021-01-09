@@ -34,8 +34,8 @@ const schema = yup.object().shape({
     .required("Email is a required field"),
   phoneNumber: yup
     .number()
-    // .matches(/^\+\d+$/i, "Should contain numbers")
-    // .max(11, "Max 10 characters"),
+  // .matches(/^\+\d+$/i, "Should contain numbers")
+  // .max(11, "Max 10 characters"),
 
 })
 
@@ -60,8 +60,8 @@ export const Step1 = () => {
 
   return (
     <MainContainer>
-<Typography component="h3" variant="h4">
-Example with Material UI
+      <Typography component="h3" variant="h4">
+        Example with Material UI
 </Typography>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
