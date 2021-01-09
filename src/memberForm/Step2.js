@@ -57,8 +57,7 @@ export const Step2 = () => {
   return (
     <div className="container">
       <h3>Step1.1</h3>
-      <h3>Sign up and join CyberDEI! Please fill out as much information as you feel comfortable sharing.<br />
-This information will only help us provide the best resources for you and the inclusive community we are trying to build.</h3>
+      <h3>Sign up and join></h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="age">
           Are you at least 18 years of age? (Must be over 18 to register)
