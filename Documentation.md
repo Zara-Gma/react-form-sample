@@ -21,16 +21,18 @@ https://material-ui.com/components/selects/
 
 https://gist.github.com/manzoorwanijk/5993a520f2ac7890c3b46f70f6818e0a
 
-# TODO
+# React Hook Form controller
 
-1. Add conditional toggle are you over 18
-   Show and Hide
-   https://app.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
-   https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r
-2. Add Phone number library
-   https://www.youtube.com/watch?v=CRxTfMy-V28
-   https://www.npmjs.com/package/react-phone-number-input
-   https://catamphetamine.gitlab.io/react-phone-number-input/
-   https://gitlab.com/catamphetamine/react-phone-number-input/-/blob/master/README.md
-3. Add address google location
-4. Register all the fields including checkboxes and dropdown
+https://codesandbox.io/s/react-hook-form-controller-079xx?file=/src/index.js
+https://dev.to/raduan/4-ways-to-use-material-ui-select-with-react-hook-form-41b2
+
+# React Styling
+
+https://app.pluralsight.com/guides/styling-a-react-app-with-material-ui
+
+# Material UI lists
+
+https://codesandbox.io/s/y72ef?file=/demo.js:1327-1336
+
+# React libraries
+https://openbase.io/categories/js/best-react-container-libraries?orderBy=RECOMMENDED&

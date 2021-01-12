@@ -14,9 +14,6 @@ import "./Step2.css";
 
 const schema = yup.object().shape({
   //TODO error message not showing
-  veteranStatus: yup
-    .string()
-    .required("Please select")
 })
 
 export const Step3 = () => {
@@ -24,13 +21,12 @@ export const Step3 = () => {
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      veteran: { value: "", label: "" }
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step3");
+    history.push("./step4");
     setValues(data);
   };
 

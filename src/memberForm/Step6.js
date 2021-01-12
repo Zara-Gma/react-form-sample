@@ -67,7 +67,7 @@ export const Step6 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step3");
+    // history.push("./result");
     setValues(data);
   };
 

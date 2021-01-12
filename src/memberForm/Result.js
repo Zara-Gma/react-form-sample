@@ -14,11 +14,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InsertDriveFile from "@material-ui/icons/InsertDriveFile";
 
 const useStyles = makeStyles({
   root: {
@@ -95,16 +90,6 @@ export const Result = () => {
             <Typography component="h2" variant="h5">
               Files
             </Typography>
-            <List>
-              {files.map((f, index) => (
-                <ListItem key={index}>
-                  <ListItemIcon>
-                    <InsertDriveFile />
-                  </ListItemIcon>
-                  <ListItemText primary={f.name} secondary={f.size} />
-                </ListItem>
-              ))}
-            </List>
           </>
         )}
         <PrimaryButton onClick={onSubmit}>Submit</PrimaryButton>

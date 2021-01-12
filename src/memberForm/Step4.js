@@ -6,14 +6,14 @@ import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
-import { Typography } from "@material-ui/core";
+import {
+  Checkbox, InputLabel, Typography
+} from "@material-ui/core";
 import * as yup from "yup";
 import "./Step2.css";
 
 const schema = yup.object().shape({
-  veteranStatus: yup
-    .string()
-    .required("Please select")
+
 })
 
 export const Step4 = () => {
@@ -21,13 +21,13 @@ export const Step4 = () => {
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      veteran: { value: "", label: "" }
+
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step3");
+    history.push("./step5");
     setValues(data);
   };
 
@@ -59,6 +59,17 @@ export const Step4 = () => {
             <li>Anyone can report harassment. If you are being harassed, notice that someone else is being harassed, or have any other concerns, a Board member should be notified immediately. Board members will investigate and take action accordingly.</li>
             <li>We reserve the right to remove and ban any persons who are not in compliance with our code of conduct.</li>
           </ul>
+        </section>
+        <section>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="accept-checkbox">
+            I agree to the terms and conditions
+          </InputLabel>
         </section>
         <PrimaryButton>Next</PrimaryButton>
       </Form>

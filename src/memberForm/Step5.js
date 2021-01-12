@@ -13,9 +13,7 @@ import * as yup from "yup";
 import "./Step2.css";
 
 const schema = yup.object().shape({
-  veteranStatus: yup
-    .string()
-    .required("Please select")
+
 })
 
 export const Step5 = () => {
@@ -23,13 +21,13 @@ export const Step5 = () => {
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      veteran: { value: "", label: "" }
+
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step6");
+    history.push("./Result.js");
     setValues(data);
   };
 
@@ -67,7 +65,7 @@ export const Step5 = () => {
 </Typography>
             <li>We encourage members to use their real name and represent themselves authentically. Please do not intentionally misrepresent yourself.
             Please edit your profile to include your pronouns (http://pronoun.is/) in your display name in the Slack channel.
-    CyberDEI-->View Profile-->Edit Profile: enter display name AND pronouns.</li>
+    CyberDEI &#x2192; View Profile &#x2192; Edit Profile: enter display name AND pronouns.</li>
           </ul>
         </section>
         <section htmlFor="self-promotion">
@@ -82,7 +80,7 @@ You're invited to share what you are working on and keep the community up to dat
         <section htmlFor="be-kind">
           <ul>
             <Typography component="h4" variant="h6">
-              BE KIND TO YOURSELF & OTHERS
+              BE KIND TO YOURSELF AND OTHERS
 </Typography>
             <li>CyberDEI is an inclusive community of varied backgrounds, from student to professional. Although the community permits a wide range of humor, please be respectful and courteous to other members. Communities mirror the societies in which they exist and positive action is essential to counteract the many forms of inequality and abuses of power that exist in society.</li>
             <li>If you see someone who is making an extra effort to ensure our community is welcoming, friendly, and encourages all participants to contribute to the fullest extent, please recognize their efforts.
@@ -110,15 +108,17 @@ If a community member engages in unacceptable behavior, we may take any action d
           </ul>
         </section>
         <h4>EFFECTIVE DATE: 08.07.2020</h4>
-        <Controller
-          as={Checkbox}
-          name="Checkbox"
-          type="checkbox"
-          control={control}
-        />
-        <InputLabel htmlFor="accept-checkbox" className="checkbox">
-          A woman
+        <section>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="accept-checkbox">
+            I agree to the terms and conditions
           </InputLabel>
+        </section>
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>
