@@ -8,9 +8,7 @@ import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
 import InputLabel from '@material-ui/core/InputLabel';
 import {
-  Checkbox,
-  Select,
-  MenuItem
+  Checkbox
 } from "@material-ui/core";
 import * as yup from "yup";
 import "./Step2.css";

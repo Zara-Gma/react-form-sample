@@ -1,125 +1,72 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useData } from "../DataContext";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
-import { useForm } from 'react-hook-form';
-import { ErrorMessage } from "@hookform/error-message";
+import { PrimaryButton } from "../components/PrimaryButton";
+import { MainContainer } from "../components/MainContainer";
+import { Form } from "../components/Form";
+import Typography from "@material-ui/core/Typography";
+import {
+  Checkbox,
+  Select,
+  MenuItem
+} from "@material-ui/core";
 import * as yup from "yup";
 import "./Step2.css";
 
-// TODO Next button not working!​
-// Either use the Form from components or not!
-
 const schema = yup.object().shape({
-  age: yup
-    .number()
-    .required("Please supply your age")
-    .min(18, "You must be at least 18 years"),
-  firstName: yup
+  veteranStatus: yup
     .string()
-    .matches(/^([^0-9]*)$/, "First name should not contain numbers")
-    .required("First name is a required field")
-    .min(3, "Name must be at least 3 characters"),
-  lastName: yup
-    .string()
-    .matches(/^([^0-9]*)$/, "Last name should not contain numbers")
-    .required("Last name is a required field")
-    .min(3, "Name must be at least 3 characters"),
-  email: yup
-    .string()
-    .email("Email should have correct format")
-    .required("Email is a required field"),
-  phoneNumber: yup
-    .number()
-  // .matches(/^\+\d+$/i, "Should contain numbers")
-  // .max(11, "Max 10 characters"),
-
+    .required("Please select")
 })
 
 export const Step5 = () => {
   const { setValues, data } = useData();
   const history = useHistory();
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phoneNumber: data.phoneNumber
+      veteran: { value: "", label: "" }
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./Step3.js");
+    history.push("./step6");
     setValues(data);
   };
 
-  return (
-    <div className="container">
-      <h3>Step1.1</h3>
-      <h3>Sign up and join</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="age">
-          Are you at least 18 years of age? (Must be over 18 to register)
-      </label>
-        <select
-          aria-invalid={errors.age ? "true" : "false"}
-          ref={register({ required: "This is required" })}
-        >
-          <ErrorMessage errors={errors} name="age" as="p" />
-          <option value="none">-None-</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <label>Experience Level</label>
-        <select name="experienceLevel" ref={register}>
-          <option value="none">-None-</option>
-          <option value="0">0-5 years</option>
-          <option value="6">6-10 years</option>
-          <option value="11">11-15 years</option>
-          <option value="16">16-20 years</option>
-        </select>
-        <label>Email
-      <input type="email"
-            name="email"
-            ref={register({
-              required: true,
-              pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/
-            })}
-          />
-          {errors.email && errors.email.type === "required" && (
-            <p className="errorMsg">Email is required.</p>
-          )}
-          {errors.email && errors.email.type === "pattern" && (
-            <p className="errorMsg">Email is not valid.</p>
-          )}
-        </label>
-        <small>We'll never share your email with anyone
-                    else.</small>
-
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="firstName"
-          aria-invalid={errors.firstName ? "true" : "false"}
-          ref={register({ required: "First name is required.", minLength: 3, maxLength: 30 })}
-        />
-        <ErrorMessage errors={errors} name="firstName" as="p" />
-
-
-        <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          aria-invalid={errors.lastName ? "true" : "false"}
-          ref={register({ required: "Last name is required.", minLength: 3, maxLength: 30 })}
-        />
-        <ErrorMessage errors={errors} name="lastName" as="p" />
-        <button>Next</button>
-      </form>
-    </div>
-
-  )
+function generate(element) {
+  return [0, 1, 2].map((value) =>
+    React.cloneElement(element, {
+      key: value,
+    }),
+  );
 }
+
+  return (
+    <MainContainer>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <section>
+<Typography component="h4" variant="h6">
+CYBERDEI ATTENDEES/MEMBERS PERSONAL CODE OF CONDUCT
+</Typography>
+        </section>
+<section>
+<ul>
+  <li>We have a zero tolerance policy regarding harassment against anyone for any reason in our community.</li>
+  <li>Harassment or hostile behavior are unwelcome, including speech that intimidates, creates discomfort,or interferes with a person's participation or opportunity for participation, in a conference, event or program.</li>
+  <li>Harassment in any form, including but not limited to harassment based on alienage or citizenship, age, color, creed, disability, marital status, military status, national origin, pregnancy, childbirth, and pregnancy related medical conditions, race, religion, sex, gender, veteran status, sexual orientation or any other status protected by laws in which the CyberDEI meeting or event is being held, will not be tolerated.</li>
+<li>Harassment includes the use of abusive or degrading language, intimidation, stalking, harassing, photography or recording, inappropriate physical contact, sexual imagery and unwelcome sexual attention.</li>
+<li>A response that the participant was "just joking," or "teasing," or being "playful," will not be accepted.</li>
+<li>Anyone asked to stop any harassing behavior is expected to comply immediately.</li>
+<li>This Code of Conduct applies to everyone participating at CyberDEI, including attendees, CyberDEI members, CyberDEI Board members, sponsors, partners, speakers, and volunteers.</li>
+<li>Anyone can report harassment. If you are being harassed, notice that someone else is being harassed, or have any other concerns, a Board member should be notified immediately. Board members will investigate and take action accordingly.</li>
+<li>We reserve the right to remove and ban any persons who are not in compliance with our code of conduct.</li>
+</ul>
+</section>
+        <PrimaryButton>Next</PrimaryButton>
+      </Form>
+    </MainContainer>
+  );
+};
