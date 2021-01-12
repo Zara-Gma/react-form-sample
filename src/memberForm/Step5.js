@@ -34,11 +34,11 @@ export const Step5 = () => {
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <section htmlFor="slack">
-          <ul>
-            <Typography component="h4" variant="h6">
+            <Typography component="h3" variant="h4">
               SLACK COMMUNITY GUIDELINES
 </Typography>
+        <section htmlFor="slack">
+          <ul>
             <li>The CyberDEI slack community is an inclusive place to collaborate, discuss cybersecurity, help one another, or give/get feedback. This isn't an exhaustive list of things that you can't do. Rather, take it in the spirit in which it's intended — a guide to make it easier to enrich all of us and the technical communities in which we participate.</li>
           </ul>
         </section>
