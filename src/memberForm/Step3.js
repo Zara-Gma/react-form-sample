@@ -1,92 +1,112 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers";
 import { useData } from "../DataContext";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Typography from "@material-ui/core/Typography";
-import Checkbox from "@material-ui/core/Checkbox";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
-import { Input } from "../components/Input";
+import InputLabel from '@material-ui/core/InputLabel';
+import {
+  Checkbox,
+  Select,
+  MenuItem
+} from "@material-ui/core";
 import * as yup from "yup";
-import { parsePhoneNumberFromString } from 'libphonenumber-js'
-
+import "./Step2.css";
 
 const schema = yup.object().shape({
-  email: yup
+  //TODO error message not showing
+  veteranStatus: yup
     .string()
-    .email("Email should have correct format")
-    .required("Email is a required field"),
-});
-
-const normalizePhoneNumber = (value) => {
-  const phoneNumber = parsePhoneNumberFromString(value)
-  if (!phoneNumber) {
-    return value
-  }
-
-  return (
-    phoneNumber.formatInternational()
-  );
-};
+    .required("Please select")
+})
 
 export const Step3 = () => {
   const { setValues, data } = useData();
   const history = useHistory();
-  const { register, handleSubmit, watch, errors } = useForm({
+  const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      email: data.email,
-      hasPhone: data.hasPhone,
-      phoneNumber: data.phoneNumber,
+      veteran: { value: "", label: "" }
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-  const hasPhone = watch("hasPhone");
-
   const onSubmit = (data) => {
-    history.push("./Step4.js");
+    history.push("./step3");
     setValues(data);
   };
 
+
   return (
     <MainContainer>
-      <Typography component="h2" variant="h5">
-        Example dependent field
-      </Typography>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          ref={register}
-          id="email"
-          type="email"
-          label="Email"
-          name="email"
-          error={!!errors.email}
-          helperText={errors?.email?.message}
-          required
-        />
-
-        <FormControlLabel
-          control={
-            <Checkbox defaultValue={data.hasPhone} defaultChecked={data.hasPhone} color="primary" inputRef={register} name="hasPhone" />
-          }
-          label="Do you have a phone"
-        />
-
-        {hasPhone && (
-          <Input
-            ref={register}
-            id="phoneNumber"
-            type="tel"
-            label="Phone Number"
-            name="phoneNumber"
-            onChange={(event) => {
-              event.target.value = normalizePhoneNumber(event.target.value);
-            }}
+        <section>
+          <h5>Interests</h5>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
           />
-        )}
+          <InputLabel htmlFor="interests-checkbox" className="checkbox">
+            Volunteering (general)
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="interests-checkbox" className="checkbox">
+            Advocacy
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="interests-checkbox" className="checkbox">
+            Career Coaching
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="interests-checkbox" className="checkbox">
+            Skill building/Training 
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="interests-checkbox" className="checkbox">
+            Events
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="interests-checkbox" className="checkbox">
+            Community Service 
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="interests-checkbox" className="checkbox">
+            Volunteering with Cyberdei 
+          </InputLabel>
+        </section>
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>
