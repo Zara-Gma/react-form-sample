@@ -7,11 +7,7 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
 import Typography from "@material-ui/core/Typography";
-import {
-  Checkbox,
-  Select,
-  MenuItem
-} from "@material-ui/core";
+
 import * as yup from "yup";
 import "./Step2.css";
 
@@ -36,35 +32,82 @@ export const Step5 = () => {
     setValues(data);
   };
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
-
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <section>
-<Typography component="h4" variant="h6">
-CYBERDEI ATTENDEES/MEMBERS PERSONAL CODE OF CONDUCT
+        <section htmlFor="slack">
+          <ul>
+            <Typography component="h4" variant="h6">
+              SLACK COMMUNITY GUIDELINES
 </Typography>
+            <li>The CyberDEI slack community is an inclusive place to collaborate, discuss cybersecurity, help one another, or give/get feedback. This isn't an exhaustive list of things that you can't do. Rather, take it in the spirit in which it's intended — a guide to make it easier to enrich all of us and the technical communities in which we participate.</li>
+          </ul>
         </section>
-<section>
-<ul>
-  <li>We have a zero tolerance policy regarding harassment against anyone for any reason in our community.</li>
-  <li>Harassment or hostile behavior are unwelcome, including speech that intimidates, creates discomfort,or interferes with a person's participation or opportunity for participation, in a conference, event or program.</li>
-  <li>Harassment in any form, including but not limited to harassment based on alienage or citizenship, age, color, creed, disability, marital status, military status, national origin, pregnancy, childbirth, and pregnancy related medical conditions, race, religion, sex, gender, veteran status, sexual orientation or any other status protected by laws in which the CyberDEI meeting or event is being held, will not be tolerated.</li>
-<li>Harassment includes the use of abusive or degrading language, intimidation, stalking, harassing, photography or recording, inappropriate physical contact, sexual imagery and unwelcome sexual attention.</li>
-<li>A response that the participant was "just joking," or "teasing," or being "playful," will not be accepted.</li>
-<li>Anyone asked to stop any harassing behavior is expected to comply immediately.</li>
-<li>This Code of Conduct applies to everyone participating at CyberDEI, including attendees, CyberDEI members, CyberDEI Board members, sponsors, partners, speakers, and volunteers.</li>
-<li>Anyone can report harassment. If you are being harassed, notice that someone else is being harassed, or have any other concerns, a Board member should be notified immediately. Board members will investigate and take action accordingly.</li>
-<li>We reserve the right to remove and ban any persons who are not in compliance with our code of conduct.</li>
-</ul>
-</section>
+        <section htmlFor="create-discussion">
+          <ul>
+            <Typography component="h4" variant="h6">
+              CREATE DISCUSSION
+</Typography>
+            <li>We encourage members to create meaningful and respectful discussion around their experiences and projects/products.</li>
+          </ul>
+        </section>
+        <section htmlFor="introduce-yourself">
+          <ul>
+            <Typography component="h4" variant="h6">
+              INTRODUCE YOURSELF
+</Typography>
+            <li>All members of CyberDEI are encouraged to introduce themselves in the #welcome channel upon arrival. Give the community a short description of who you are and what you're working on. Feel free to share what you are looking to get out of the community.</li>
+          </ul>
+        </section>
+        <section htmlFor="be-authentic">
+          <ul>
+            <Typography component="h4" variant="h6">
+              BE AUTHENTIC
+</Typography>
+            <li>We encourage members to use their real name and represent themselves authentically. Please do not intentionally misrepresent yourself.
+            Please edit your profile to include your pronouns (http://pronoun.is/) in your display name in the Slack channel.
+    CyberDEI-->View Profile-->Edit Profile: enter display name AND pronouns.</li>
+          </ul>
+        </section>
+        <section htmlFor="self-promotion">
+          <ul>
+            <Typography component="h4" variant="h6">
+              SELF-PROMOTION
+</Typography>
+            <li>Active participation and genuine interest in the community goes a long way towards user engagement with what you are promoting.
+You're invited to share what you are working on and keep the community up to date as you release new features or products, but please create discussion around your work. Please do not "cross-post" your message to multiple channels.</li>
+          </ul>
+        </section>
+        <section htmlFor="be-kind">
+          <ul>
+            <Typography component="h4" variant="h6">
+              BE KIND TO YOURSELF & OTHERS
+</Typography>
+            <li>CyberDEI is an inclusive community of varied backgrounds, from student to professional. Although the community permits a wide range of humor, please be respectful and courteous to other members. Communities mirror the societies in which they exist and positive action is essential to counteract the many forms of inequality and abuses of power that exist in society.</li>
+            <li>If you see someone who is making an extra effort to ensure our community is welcoming, friendly, and encourages all participants to contribute to the fullest extent, please recognize their efforts.
+As with any large group of people, disagreements will happen. We understand that you'll have some strong opinions, but we still expect courtesy during a debate and expect you to refrain from personal attacks.</li>
+            <li>If we see members acting unprofessional moderators reserve the right to remove them from the community.</li>
+          </ul>
+        </section>
+        <section htmlFor="unacceptable-behavior">
+          <ul>
+            <Typography component="h4" variant="h6">
+              CONSEQUENCES OF UNACCEPTABLE BEHAVIOR
+</Typography>
+            <li>All members of the CyberDEI Slack community are required to read and adhere to the official Code of Conduct (https://www.cyberdei.org/codeofconduct) as well as abide by these guidelines. Failure to adhere to the community guidelines can result in your messages being removed. Repeated violations will result in loss of access to the community.
+            Unacceptable behavior from any community member, including leadership and those with decision-making authority, will not be tolerated.
+            Anyone asked to stop unacceptable behavior is expected to comply immediately.
+If a community member engages in unacceptable behavior, we may take any action deemed appropriate, up to and including a temporary ban or permanent expulsion from the community without warning.</li>
+          </ul>
+        </section>
+        <section htmlFor="reporting-violations">
+          <ul>
+            <Typography component="h4" variant="h6">
+              REPORTING VIOLATIONS
+</Typography>
+            <li>If you are subject to or witness unacceptable behavior, or have any other concerns, please notify us as soon as possible by emailing conduct@cyberdei.org or pinging an admin on Slack..</li>
+          </ul>
+        </section>
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>
