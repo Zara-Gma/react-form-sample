@@ -15,3 +15,16 @@ https://material-ui.com/components/selects/
 
 # Address validation
 https://gist.github.com/manzoorwanijk/5993a520f2ac7890c3b46f70f6818e0a
+
+
+TODO
+1. Add conditional toggle are you over 18
+Show and Hide
+https://app.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
+https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r
+2. Add Phone number library
+https://www.youtube.com/watch?v=CRxTfMy-V28
+https://www.npmjs.com/package/react-phone-number-input
+https://catamphetamine.gitlab.io/react-phone-number-input/
+https://gitlab.com/catamphetamine/react-phone-number-input/-/blob/master/README.md
+3. Add city library

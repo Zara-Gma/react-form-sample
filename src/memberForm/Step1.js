@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useData } from "../DataContext";
 import Typography from "@material-ui/core/Typography";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
@@ -13,11 +13,14 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import * as yup from "yup";
 
+//TODO update to library
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
 const schema = yup.object().shape({
-  age: yup
-    .number()
-    .required("Please supply your age")
-    .min(18, "You must be at least 18 years"),
+  //TODO error message not showing
+  experienceLevel: yup
+    .string(),
+    // .required("Please select your experience level"),
   firstName: yup
     .string()
     .matches(/^([^0-9]*)$/, "First name should not contain numbers")
@@ -32,17 +35,19 @@ const schema = yup.object().shape({
     .string()
     .email("Email should have correct format")
     .required("Email is a required field"),
+  // TODO update to library version
   phoneNumber: yup
-    .number()
-  // .matches(/^\+\d+$/i, "Should contain numbers")
-  // .max(11, "Max 10 characters"),
-
+    .string()
+    .matches(phoneRegExp, 'Phone number is not valid')
+    .min(10, "to short")
+    .max(10, "to long"),
+  //TODO add address
 })
 
 export const Step1 = () => {
   const { setValues, data } = useData();
   const history = useHistory();
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -64,34 +69,20 @@ export const Step1 = () => {
         Example with Material UI
 </Typography>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          ref={register}
-          id="age"
-          type="number"
-          label="Age"
-          name="age"
-          error={!!errors.age}
-          helperText={errors?.age?.message}
-        />
-        <InputLabel id="experienceLevel">Experience Level</InputLabel>
-        <Select
-          labelId="experienceLevel"
-          id="experienceLevel"
-        >
-          <MenuItem value={0}>0-5 years</MenuItem>
-          <MenuItem value={6}>6-10 years</MenuItem>
-          <MenuItem value={11}>11-15 years</MenuItem>
-          <MenuItem value={16}>16 +years</MenuItem>
-        </Select>
-        <Input
-          ref={register}
-          id="email"
-          type="email"
-          label="Email"
-          name="email"
-          error={!!errors.email}
-          helperText={errors?.email?.message}
-          required
+        <InputLabel htmlFor="experienceLevel-select">
+          Experience Level
+          </InputLabel>
+        <Controller
+          control={control}
+          name="experienceLevel"
+          as={
+            <Select id="experienceLevel" name="experienceLevel" error={!!errors.experienceLevel} helperText={errors?.experienceLevel?.message} ref={register} required>
+              <MenuItem value={0}>0-5 years</MenuItem>
+              <MenuItem value={6}>6-10 years</MenuItem>
+              <MenuItem value={11}>11-15 years</MenuItem>
+              <MenuItem value={16}>16 +years</MenuItem>
+            </Select>
+          }
         />
         <Input
           ref={register}
@@ -113,6 +104,16 @@ export const Step1 = () => {
         />
         <Input
           ref={register}
+          id="email"
+          type="email"
+          label="Email"
+          name="email"
+          error={!!errors.email}
+          helperText={errors?.email?.message}
+          required
+        />
+        <Input
+          ref={register}
           id="phoneNumber"
           type="tel"
           label="Phone Number"
@@ -120,6 +121,15 @@ export const Step1 = () => {
           error={!!errors.phoneNumber}
           helperText={errors?.phoneNumber?.message}
         />
+        {/* <Input
+          ref={register}
+          id="age"
+          type="number"
+          label="Age"
+          name="age"
+          error={!!errors.age}
+          helperText={errors?.age?.message}
+        /> */}
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>
