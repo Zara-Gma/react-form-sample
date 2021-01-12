@@ -6,8 +6,9 @@ import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
-import Typography from "@material-ui/core/Typography";
-
+import {
+  Checkbox, InputLabel, Typography
+} from "@material-ui/core";
 import * as yup from "yup";
 import "./Step2.css";
 
@@ -108,6 +109,16 @@ If a community member engages in unacceptable behavior, we may take any action d
             <li>If you are subject to or witness unacceptable behavior, or have any other concerns, please notify us as soon as possible by emailing conduct@cyberdei.org or pinging an admin on Slack..</li>
           </ul>
         </section>
+        <h4>EFFECTIVE DATE: 08.07.2020</h4>
+        <Controller
+          as={Checkbox}
+          name="Checkbox"
+          type="checkbox"
+          control={control}
+        />
+        <InputLabel htmlFor="accept-checkbox" className="checkbox">
+          A woman
+          </InputLabel>
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>

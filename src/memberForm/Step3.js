@@ -6,9 +6,8 @@ import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
-import InputLabel from '@material-ui/core/InputLabel';
 import {
-  Checkbox
+  Checkbox, InputLabel
 } from "@material-ui/core";
 import * as yup from "yup";
 import "./Step2.css";
@@ -75,7 +74,7 @@ export const Step3 = () => {
             control={control}
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
-            Skill building/Training 
+            Skill building/Training
           </InputLabel>
           <Controller
             as={Checkbox}
@@ -93,7 +92,7 @@ export const Step3 = () => {
             control={control}
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
-            Community Service 
+            Community Service
           </InputLabel>
           <Controller
             as={Checkbox}
@@ -102,7 +101,7 @@ export const Step3 = () => {
             control={control}
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
-            Volunteering with Cyberdei 
+            Volunteering with Cyberdei
           </InputLabel>
         </section>
         <PrimaryButton>Next</PrimaryButton>

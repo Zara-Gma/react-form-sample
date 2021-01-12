@@ -31,23 +31,23 @@ export default ({ value, onChange }) => (
         <ul {...getMenuProps()}>
           {isOpen
             ? items
-                .filter(item => !inputValue || item.includes(inputValue))
-                .map((item, index) => (
-                  <li
-                    {...getItemProps({
-                      key: item,
-                      index,
-                      item,
-                      style: {
-                        backgroundColor:
-                          highlightedIndex === index ? "lightgray" : null,
-                        fontWeight: selectedItem === item ? "bold" : "normal"
-                      }
-                    })}
-                  >
-                    {item}
-                  </li>
-                ))
+              .filter(item => !inputValue || item.includes(inputValue))
+              .map((item, index) => (
+                <li
+                  {...getItemProps({
+                    key: item,
+                    index,
+                    item,
+                    style: {
+                      backgroundColor:
+                        highlightedIndex === index ? "lightgray" : null,
+                      fontWeight: selectedItem === item ? "bold" : "normal"
+                    }
+                  })}
+                >
+                  {item}
+                </li>
+              ))
             : null}
         </ul>
       </div>

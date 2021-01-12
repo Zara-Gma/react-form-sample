@@ -72,9 +72,9 @@ export const Step6 = () => {
   };
 
 
-return (
+  return (
     <ThemeProvider theme={theme}>
-<Form onSubmit={handleSubmit(onSubmit)} className="form">
+      <Form onSubmit={handleSubmit(onSubmit)} className="form">
         <div className="container">
           <section>
             <label>Native Input:</label>

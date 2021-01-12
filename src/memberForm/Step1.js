@@ -8,9 +8,9 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
 import { Input } from "../components/Input";
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import {
+  Select, InputLabel, MenuItem
+} from "@material-ui/core";
 import * as yup from "yup";
 import "./Step2.css";
 
@@ -21,7 +21,7 @@ const schema = yup.object().shape({
   //TODO error message not showing
   experienceLevel: yup
     .string(),
-    // .required("Please select your experience level"),
+  // .required("Please select your experience level"),
   firstName: yup
     .string()
     .matches(/^([^0-9]*)$/, "First name should not contain numbers")
@@ -66,9 +66,6 @@ export const Step1 = () => {
 
   return (
     <MainContainer>
-      <Typography component="h3" variant="h4">
-        Example with Material UI
-</Typography>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputLabel htmlFor="experienceLevel-select">
           Experience Level
