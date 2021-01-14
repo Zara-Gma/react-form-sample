@@ -1,4 +1,5 @@
-# Vanilla Js form 
+# Vanilla Js form
+
 https://cyberdei-member.000webhostapp.com/
 
 # React Hook Form embraces uncontrolled components and native inputs,
@@ -38,4 +39,18 @@ https://app.pluralsight.com/guides/styling-a-react-app-with-material-ui
 https://codesandbox.io/s/y72ef?file=/demo.js:1327-1336
 
 # React libraries
+
 https://openbase.io/categories/js/best-react-container-libraries?orderBy=RECOMMENDED&
+
+# Progress Bars
+
+https://codepen.io/peruvianidol/pen/NLMvqO
+https://codepen.io/peruvianidol/pen/NLMvqO?editors=1100
+
+# Spacing
+
+https://codesandbox.io/s/kst97?file=/demo.js:835-842
+
+# Conditional
+
+https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r?file=/src/App.tsx:1313-1317

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useData } from "../DataContext";
-import Typography from "@material-ui/core/Typography";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
@@ -12,20 +11,20 @@ import {
   Select, InputLabel, MenuItem
 } from "@material-ui/core";
 import * as yup from "yup";
-import "./Step2.css";
 
 //TODO update to library
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 const schema = yup.object().shape({
   //TODO error message not showing
+  over18: yup
+    .string()
+    .required("Please select your experience level"),
   experienceLevel: yup
     .string(),
-  // .required("Please select your experience level"),
   firstName: yup
-    .string()
+    .string().required("First name is a required field")
     .matches(/^([^0-9]*)$/, "First name should not contain numbers")
-    .required("First name is a required field")
     .min(3, "Name must be at least 3 characters"),
   lastName: yup
     .string()
@@ -45,15 +44,20 @@ const schema = yup.object().shape({
   //TODO add address
 })
 
+
 export const Step1 = () => {
   const { setValues, data } = useData();
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
+      over18: data.over18,
+      experienceLevel: data.experienceLevel,
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
-      phoneNumber: data.phoneNumber
+      phoneNumber: data.phoneNumber,
+      address: data.address,
+      state: data.state
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
@@ -67,6 +71,21 @@ export const Step1 = () => {
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
+        <section>
+          <InputLabel htmlFor="over18-select">
+            Are you at least 18 years of age? (Must be over 18 to register)
+          </InputLabel>
+          <Controller
+            control={control}
+            name="over18"
+            as={
+              <Select id="over18" name="over18" error={!!errors.over18} helperText={errors?.over18?.message} ref={register} required>
+                <MenuItem value={0}>Yes</MenuItem>
+                <MenuItem value={6}>No</MenuItem>
+              </Select>
+            }
+          />
+        </section>
         <InputLabel htmlFor="experienceLevel-select">
           Experience Level
           </InputLabel>
@@ -74,7 +93,7 @@ export const Step1 = () => {
           control={control}
           name="experienceLevel"
           as={
-            <Select id="experienceLevel" name="experienceLevel" error={!!errors.experienceLevel} helperText={errors?.experienceLevel?.message} ref={register} required>
+            <Select id="experienceLevel" name="experienceLevel" error={!!errors.experienceLevel} helperText={errors?.experienceLevel?.message} ref={register}>
               <MenuItem value={0}>0-5 years</MenuItem>
               <MenuItem value={6}>6-10 years</MenuItem>
               <MenuItem value={11}>11-15 years</MenuItem>
@@ -119,17 +138,31 @@ export const Step1 = () => {
           error={!!errors.phoneNumber}
           helperText={errors?.phoneNumber?.message}
         />
-        {/* <Input
-          ref={register}
-          id="age"
-          type="number"
-          label="Age"
-          name="age"
-          error={!!errors.age}
-          helperText={errors?.age?.message}
-        /> */}
+        <section>
+          <h5>Address:</h5>
+          <Input
+            ref={register}
+            id="Address"
+            placeholder="1234 Main St"
+            type="text"
+            label="Address"
+            name="Address"
+            error={!!errors.Address}
+            helperText={errors?.Address?.message}
+          />
+          <Input
+            ref={register}
+            id="State"
+            placeholder="Apartment, studio, or floor"
+            type="text"
+            label="State"
+            name="State"
+            error={!!errors.State}
+            helperText={errors?.State?.message}
+          />
+        </section>
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>
   );
-};
+}

@@ -10,7 +10,6 @@ import {
   Checkbox, InputLabel, Typography
 } from "@material-ui/core";
 import * as yup from "yup";
-import "./Step2.css";
 
 const schema = yup.object().shape({
 
@@ -34,8 +33,8 @@ export const Step5 = () => {
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
-            <Typography component="h3" variant="h4">
-              SLACK COMMUNITY GUIDELINES
+        <Typography component="h3" variant="h4">
+          SLACK COMMUNITY GUIDELINES
 </Typography>
         <section htmlFor="slack">
           <ul>

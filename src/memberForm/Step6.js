@@ -25,7 +25,6 @@ import {
   Slider
 } from "@material-ui/core";
 import * as yup from "yup";
-import "./Step2.css";
 
 const theme = createMuiTheme({
   palette: {

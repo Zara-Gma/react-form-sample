@@ -10,7 +10,6 @@ import {
   Checkbox, InputLabel, Typography
 } from "@material-ui/core";
 import * as yup from "yup";
-import "./Step2.css";
 
 const schema = yup.object().shape({
 

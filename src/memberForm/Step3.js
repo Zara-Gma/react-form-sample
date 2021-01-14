@@ -10,7 +10,6 @@ import {
   Checkbox, InputLabel
 } from "@material-ui/core";
 import * as yup from "yup";
-import "./Step2.css";
 
 const schema = yup.object().shape({
   //TODO error message not showing
@@ -19,7 +18,7 @@ const schema = yup.object().shape({
 export const Step3 = () => {
   const { setValues, data } = useData();
   const history = useHistory();
-  const { register, handleSubmit, control, errors } = useForm({
+  const { handleSubmit, control } = useForm({
     defaultValues: {
     },
     mode: "onBlur",

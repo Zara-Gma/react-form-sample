@@ -5,21 +5,23 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
+import ReactSelect from "react-select";
+import options from "../constants/veteranSelectOptions";
 import { Form } from "../components/Form";
 import {
   Checkbox,
-  Select,
-  MenuItem,
   InputLabel
 } from "@material-ui/core";
 import * as yup from "yup";
-import "./Step2.css";
 
 const schema = yup.object().shape({
   //TODO error message not showing
   veteranStatus: yup
-    .string()
-    .required("Please select")
+    .string(),
+  identify: yup
+    .string(),
+  comment: yup.string()
+    .min(3, "Must be at least 3 characters")
 })
 
 export const Step2 = () => {
@@ -27,7 +29,10 @@ export const Step2 = () => {
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      veteran: { value: "", label: "" }
+      // veteran: { value: "", label: "" }
+      veteranStatus: data.veteranStatus,
+      identify: data.identify,
+      comments: data.comments
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
@@ -42,19 +47,13 @@ export const Step2 = () => {
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <section>
-          <InputLabel htmlFor="veteranStatus-select">
-            Veteran Status
-          </InputLabel>
+          <label>Veteran Status</label>
           <Controller
+            as={ReactSelect}
+            options={options}
+            name="VeteranStatus"
+            isClearable
             control={control}
-            name="veteranStatus"
-            as={
-              <Select id="veteranStatus" name="veteranStatus" error={!!errors.veteranStatus} helperText={errors?.veteranStatus?.message} ref={register} required>
-                <MenuItem value={0}>Yes - you are a veteran of the U.S. Armed Forces</MenuItem>
-                <MenuItem value={6}>No - you are not a veteran of the U.S. Armed Forces</MenuItem>
-                <MenuItem value={11}>I am a military spouse</MenuItem>
-              </Select>
-            }
           />
         </section>
         <section>
@@ -223,10 +222,10 @@ export const Step2 = () => {
           </InputLabel>
         </section>
         <section>
-          <InputLabel htmlFor="additional-comments" >
-            Additional Comments:
+          <InputLabel htmlFor="additional-comments">
+            Additional comments:
           </InputLabel>
-          <textarea ref={register} id="comments" name="comments" rows="3" cols="50" placeholder="comments here"></textarea>
+          <textarea ref={register} id="comments" name="comments" rows="3" cols="50"></textarea>
         </section>
         <PrimaryButton>Next</PrimaryButton>
       </Form>

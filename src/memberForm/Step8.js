@@ -5,7 +5,6 @@ import { yupResolver } from "@hookform/resolvers";
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from "@hookform/error-message";
 import * as yup from "yup";
-import "./Step2.css";
 
 // TODO Next button not working!​
 // Either use the Form from components or not!
