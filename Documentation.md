@@ -54,3 +54,6 @@ https://codesandbox.io/s/kst97?file=/demo.js:835-842
 # Conditional
 
 https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r?file=/src/App.tsx:1313-1317
+
+Multiselect
+https://codesandbox.io/s/10xn41w767?file=/src/index.js:0-10100

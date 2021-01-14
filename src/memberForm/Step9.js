@@ -23,7 +23,7 @@ export const Step9 = () => {
   });
 
   const onSubmit = (data) => {
-    history.push("./Result.js");
+    // history.push("./Result.js");
     setValues(data);
   };
 

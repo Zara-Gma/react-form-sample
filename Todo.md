@@ -1,15 +1,15 @@
 # TODO
 
 1. Css Progress bar
-2. Recaptcha
-3. Add conditional toggle are you over 18
+2. Maybe - Add conditional toggle are you over 18
    Show and Hide
    https://app.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
    https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r
-4. Fields - To add:
+3. Fields - To add:
 
-- Gender identity so we can capture their pronouns
+- Gender identity so we can capture their pronouns (multiselect)
 - Looking to get out of this group (ex. networking, mentorship, learning new security tools/skills, etc.)
+  https://www.ruth-ng.co.uk/how-to-ask-about-gender-in-forms-respectfully/
 
 5. Add Phone number library
    https://www.youtube.com/watch?v=CRxTfMy-V28
@@ -23,28 +23,3 @@
 8. Agree to the terms then show next button
 9. Accept all then show submit button
 10. Run static code analysis
-
-<div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
-                    aria-label="address 2">
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity" placeholder="City">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Zip Code</label>
-                    <input type="number" class="form-control" id="inputZip">
-                </div>
-            </div>

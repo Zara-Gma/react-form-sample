@@ -15,7 +15,7 @@ import { Step9 } from './memberForm/Step9';
 import { Result } from "./memberForm/Result";
 import { Header } from "./components/Header";
 import "../src/memberForm/Step2.css";
-// import "../src/memberForm/ProgressBar.css";
+import "../src/memberForm/ProgressBar.css";
 
 const Pages = () => {
   const location = useLocation();

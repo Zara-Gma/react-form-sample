@@ -49,7 +49,7 @@ export const Step8 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./Step9.js");
+    // history.push("./Step9.js");
     setValues(data);
   };
 

@@ -8,11 +8,27 @@ import { MainContainer } from "../components/MainContainer";
 import ReactSelect from "react-select";
 import options from "../constants/veteranSelectOptions";
 import { Form } from "../components/Form";
+import FormSelectAutoComplete from "../components/select-autocomplete";
 import {
   Checkbox,
   InputLabel
 } from "@material-ui/core";
 import * as yup from "yup";
+
+const numberData = [
+  {
+    id: "10",
+    label: "Ten",
+  },
+  {
+    id: "20",
+    label: "Twenty",
+  },
+  {
+    id: "30",
+    label: "Thirty",
+  },
+];
 
 const schema = yup.object().shape({
   //TODO error message not showing
@@ -46,6 +62,7 @@ export const Step2 = () => {
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
+
         <section>
           <label>Veteran Status</label>
           <Controller

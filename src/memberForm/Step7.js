@@ -47,7 +47,7 @@ export const Step7 = () => {
   const hasPhone = watch("hasPhone");
 
   const onSubmit = (data) => {
-    history.push("./Step4.js");
+    // history.push("./Step4.js");
     setValues(data);
   };
 
