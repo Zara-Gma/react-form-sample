@@ -55,9 +55,7 @@ export const Step1 = () => {
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
-      phoneNumber: data.phoneNumber,
-      address: data.address,
-      state: data.state
+      phoneNumber: data.phoneNumber
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
@@ -138,29 +136,6 @@ export const Step1 = () => {
           error={!!errors.phoneNumber}
           helperText={errors?.phoneNumber?.message}
         />
-        <section>
-          <h5>Address:</h5>
-          <Input
-            ref={register}
-            id="Address"
-            placeholder="1234 Main St"
-            type="text"
-            label="Address"
-            name="Address"
-            error={!!errors.Address}
-            helperText={errors?.Address?.message}
-          />
-          <Input
-            ref={register}
-            id="State"
-            placeholder="Apartment, studio, or floor"
-            type="text"
-            label="State"
-            name="State"
-            error={!!errors.State}
-            helperText={errors?.State?.message}
-          />
-        </section>
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>

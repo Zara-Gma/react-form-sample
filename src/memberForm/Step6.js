@@ -66,14 +66,14 @@ export const Step6 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    // history.push("./result");
-    setValues(data);
+    console.log(data);
   };
 
 
   return (
     <ThemeProvider theme={theme}>
       <Form onSubmit={handleSubmit(onSubmit)} className="form">
+        <h3>Example Material UI Components</h3>
         <div className="container">
           <section>
             <label>Native Input:</label>

@@ -8,8 +8,9 @@
 3. Fields - To add:
 
 - Gender identity so we can capture their pronouns (multiselect)
-- Looking to get out of this group (ex. networking, mentorship, learning new security tools/skills, etc.)
+  https://www.npmjs.com/package/multiselect-react-dropdown
   https://www.ruth-ng.co.uk/how-to-ask-about-gender-in-forms-respectfully/
+- Looking to get out of this group (ex. networking, mentorship, learning new security tools/skills, etc.)
 
 5. Add Phone number library
    https://www.youtube.com/watch?v=CRxTfMy-V28

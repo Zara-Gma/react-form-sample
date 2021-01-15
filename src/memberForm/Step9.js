@@ -23,12 +23,12 @@ export const Step9 = () => {
   });
 
   const onSubmit = (data) => {
-    // history.push("./Result.js");
-    setValues(data);
+    console.log(data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>Example Reset field</h3>
       <h2>Veteran Status</h2>
 
       <label htmlFor="veteranStatus">Veteran Status</label>

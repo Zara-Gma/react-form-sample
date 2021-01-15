@@ -15,21 +15,6 @@ import {
 } from "@material-ui/core";
 import * as yup from "yup";
 
-const numberData = [
-  {
-    id: "10",
-    label: "Ten",
-  },
-  {
-    id: "20",
-    label: "Twenty",
-  },
-  {
-    id: "30",
-    label: "Thirty",
-  },
-];
-
 const schema = yup.object().shape({
   //TODO error message not showing
   veteranStatus: yup
@@ -45,7 +30,6 @@ export const Step2 = () => {
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      // veteran: { value: "", label: "" }
       veteranStatus: data.veteranStatus,
       identify: data.identify,
       comments: data.comments

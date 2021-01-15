@@ -49,13 +49,12 @@ export const Step8 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    // history.push("./Step9.js");
-    setValues(data);
+    console.log(data);
   };
 
   return (
     <div className="container">
-      <h3>Step1.1</h3>
+      <h3>Example without Material UI</h3>
       <h3>Sign up and join</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="age">

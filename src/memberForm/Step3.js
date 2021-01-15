@@ -20,6 +20,7 @@ export const Step3 = () => {
   const history = useHistory();
   const { handleSubmit, control } = useForm({
     defaultValues: {
+      interests: data.interests,
     },
     mode: "onBlur",
     resolver: yupResolver(schema),

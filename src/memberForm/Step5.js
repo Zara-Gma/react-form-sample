@@ -20,7 +20,7 @@ export const Step5 = () => {
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-
+      slackAgreement: data.slackAgreement
     },
     mode: "onBlur",
     resolver: yupResolver(schema),

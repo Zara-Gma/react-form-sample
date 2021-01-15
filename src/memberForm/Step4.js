@@ -20,23 +20,16 @@ export const Step4 = () => {
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-
+      conductAgreements: data.conductAgreements
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    // history.push("./step6");
+    history.push("./step5");
     setValues(data);
   };
 
-  function generate(element) {
-    return [0, 1, 2].map((value) =>
-      React.cloneElement(element, {
-        key: value,
-      }),
-    );
-  }
 
   return (
     <MainContainer>
