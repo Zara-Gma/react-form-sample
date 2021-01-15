@@ -15,7 +15,7 @@ const schema = yup.object().shape({
   //TODO error message not showing
 })
 
-export const Step3 = () => {
+export const Interests = () => {
   const { setValues, data } = useData();
   const history = useHistory();
   const { handleSubmit, control } = useForm({
@@ -26,7 +26,7 @@ export const Step3 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step4");
+    history.push("./codeofconduct");
     setValues(data);
   };
 

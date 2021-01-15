@@ -25,12 +25,12 @@ const schema = yup.object().shape({
   firstName: yup
     .string().required("First name is a required field")
     .matches(/^([^0-9]*)$/, "First name should not contain numbers")
-    .min(3, "Name must be at least 3 characters"),
+    .min(2, "Name must be at least 2 characters"),
   lastName: yup
     .string()
     .matches(/^([^0-9]*)$/, "Last name should not contain numbers")
     .required("Last name is a required field")
-    .min(3, "Name must be at least 3 characters"),
+    .min(2, "Name must be at least 2 characters"),
   email: yup
     .string()
     .email("Email should have correct format")
@@ -45,7 +45,7 @@ const schema = yup.object().shape({
 })
 
 
-export const Step1 = () => {
+export const PersonalInfo = () => {
   const { setValues, data } = useData();
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
@@ -61,7 +61,7 @@ export const Step1 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step2");
+    history.push("./identity");
     setValues(data);
   };
 

@@ -15,7 +15,7 @@ const schema = yup.object().shape({
 
 })
 
-export const Step4 = () => {
+export const CodeOfConduct = () => {
   const { setValues, data } = useData();
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
@@ -26,7 +26,7 @@ export const Step4 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step5");
+    history.push("./codeofconduct");
     setValues(data);
   };
 

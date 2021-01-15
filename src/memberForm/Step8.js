@@ -6,9 +6,6 @@ import { useForm } from 'react-hook-form';
 import { ErrorMessage } from "@hookform/error-message";
 import * as yup from "yup";
 
-// TODO Next button not working!​
-// Either use the Form from components or not!
-
 const schema = yup.object().shape({
   age: yup
     .number()

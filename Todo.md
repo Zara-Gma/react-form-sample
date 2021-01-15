@@ -1,5 +1,14 @@
 # TODO
 
+Personal Information
+User - Identifying questions
+Interests
+Code of Conduct
+Slack community guidelines
+Confirmation page (result) - Not sure if it needs to be created
+Thank you (haven’t created it yet)
+
+0. Rename each step with a more descriptive name to help me remember what each step does
 1. Css Progress bar
 2. Maybe - Add conditional toggle are you over 18
    Show and Hide

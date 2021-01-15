@@ -25,7 +25,7 @@ const schema = yup.object().shape({
     .min(3, "Must be at least 3 characters")
 })
 
-export const Step2 = () => {
+export const Identity = () => {
   const { setValues, data } = useData();
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
@@ -38,7 +38,7 @@ export const Step2 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./step3");
+    history.push("./interests");
     setValues(data);
   };
 

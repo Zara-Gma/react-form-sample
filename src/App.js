@@ -3,16 +3,17 @@ import {
   BrowserRouter as Router, Route, Link,
   useLocation
 } from "react-router-dom";
-import { Step1 } from "./memberForm/Step1";
-import { Step2 } from "./memberForm/Step2";
-import { Step3 } from "./memberForm/Step3";
-import { Step4 } from './memberForm/Step4';
-import { Step5 } from './memberForm/Step5';
-import { Step6 } from './memberForm/Step6';
-import { Step7 } from './memberForm/Step7';
-import { Step8 } from './memberForm/Step8';
-import { Step9 } from './memberForm/Step9';
-import { Result } from "./memberForm/Result";
+import { PersonalInfo } from "./memberForm/1Personalinfo";
+import { Identity } from "./memberForm/2Identity";
+import { Interests } from "./memberForm/3Interests";
+import { CodeOfConduct } from './memberForm/4CodeConduct';
+import { SlackConduct } from './memberForm/5SlackConduct';
+// import { Step6 } from './memberForm/Step6';
+// import { Step7 } from './memberForm/Step7';
+// import { Step8 } from './memberForm/Step8';
+// import { Step9 } from './memberForm/Step9';
+import { ThankYou } from './memberForm/6ThankYou';
+// import { Result } from "./memberForm/Result";
 import { Header } from "./components/Header";
 import "../src/memberForm/Step2.css";
 import "../src/memberForm/ProgressBar.css";
@@ -24,21 +25,21 @@ const Pages = () => {
       <nav className="container">
         <ol className="steps">
           <li className={location.pathname === "/" ? "active" : ""}>
-            <Link to="/">Step 1</Link>
+            <Link to="/">Personal Information</Link>
           </li>
-          <li className={location.pathname === "/step2" ? "active" : ""}>
-            <Link to="/step2">Step 2</Link>
+          <li className={location.pathname === "/identity" ? "active" : ""}>
+            <Link to="/identity">Identity</Link>
           </li>
           <li className={location.pathname === "/step3" ? "active" : ""}>
-            <Link to="/step3">Step 3</Link>
+            <Link to="/interests">Interests</Link>
           </li>
           <li className={location.pathname === "/step4" ? "active" : ""}>
-            <Link to="/step4">Step 4</Link>
+            <Link to="/codeofconduct">Code of Conduct</Link>
           </li>
           <li className={location.pathname === "/step5" ? "active" : ""}>
-            <Link to="/step5">Step 5</Link>
+            <Link to="/slackconduct">Slack Guidelines</Link>
           </li>
-          <li className={location.pathname === "/step6" ? "active" : ""}>
+          {/* <li className={location.pathname === "/step6" ? "active" : ""}>
             <Link to="/step6">Step 6</Link>
           </li>
           <li className={location.pathname === "/step7" ? "active" : ""}>
@@ -49,22 +50,26 @@ const Pages = () => {
           </li>
           <li className={location.pathname === "/step9" ? "active" : ""}>
             <Link to="/step9">Step 9</Link>
-          </li>
-          <li className={location.pathname === "/result" ? "active" : ""}>
+          </li> */}
+          {/* <li className={location.pathname === "/result" ? "active" : ""}>
             <Link to="/result">Result</Link>
+          </li> */}
+          <li className={location.pathname === "/thankyou" ? "active" : ""}>
+            <Link to="/thankyou">Thank you</Link>
           </li>
         </ol>
       </nav>
-      <Route exact path="/" component={Step1} />
-      <Route path="/step2" component={Step2} />
-      <Route path="/step3" component={Step3} />
-      <Route path="/step4" component={Step4} />
-      <Route path="/step5" component={Step5} />
-      <Route path="/step6" component={Step6} />
+      <Route exact path="/" component={PersonalInfo} />
+      <Route path="/identity" component={Identity} />
+      <Route path="/interests" component={Interests} />
+      <Route path="/codeofconduct" component={CodeOfConduct} />
+      <Route path="/slackconduct" component={SlackConduct} />
+      {/* <Route path="/step6" component={Step6} />
       <Route path="/step7" component={Step7} />
       <Route path="/step8" component={Step8} />
       <Route path="/step9" component={Step9} />
-      <Route path="/result" component={Result} />
+      <Route path="/result" component={Result} /> */}
+      <Route path="/thankyou" component={ThankYou} />
     </>
   );
 };

@@ -15,7 +15,7 @@ const schema = yup.object().shape({
 
 })
 
-export const Step5 = () => {
+export const SlackConduct = () => {
   const { setValues, data } = useData();
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
@@ -26,7 +26,7 @@ export const Step5 = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./result");
+    history.push("./thankyou");
     setValues(data);
   };
 
