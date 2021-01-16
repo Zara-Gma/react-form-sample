@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
+import { Input } from "../components/Input";
 import {
   Checkbox, InputLabel
 } from "@material-ui/core";
@@ -18,7 +19,7 @@ const schema = yup.object().shape({
 export const Interests = () => {
   const { setValues, data } = useData();
   const history = useHistory();
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control, register, errors } = useForm({
     defaultValues: {
       interests: data.interests,
     },
@@ -34,6 +35,53 @@ export const Interests = () => {
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
+        <section>
+          <h5>What are your pronouns?</h5>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="identify-checkbox" className="checkbox">
+            She/her
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="identify-checkbox" className="checkbox">
+            He/him
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="identify-checkbox" className="checkbox">
+            They/them
+          </InputLabel>
+          <Controller
+            as={Checkbox}
+            name="Checkbox"
+            type="checkbox"
+            control={control}
+          />
+          <InputLabel htmlFor="identify-checkbox" className="checkbox">
+            I prefer not to say
+          </InputLabel>
+          <Input
+            ref={register}
+            id="pronoun"
+            type="text"
+            label="Let me type"
+            placeholder="My pronoun is..."
+            name="pronoun"
+          />
+        </section>
         <section>
           <h5>Interests</h5>
           <Controller

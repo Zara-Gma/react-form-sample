@@ -50,8 +50,8 @@ export const Identity = () => {
           <label>Veteran Status</label>
           <Controller
             as={ReactSelect}
-            veteran={Veteran}
-            name="VeteranStatus"
+            options={Veteran}
+            name="veteranStatus"
             isClearable
             control={control}
           />

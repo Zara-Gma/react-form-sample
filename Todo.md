@@ -1,8 +1,7 @@
 # TODO
 
 1. Css Progress bar
-2. Maybe - Add conditional toggle are you over 18
-   Show and Hide
+2. Validation over18
    https://app.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
    https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r
 3. Fields - To add:

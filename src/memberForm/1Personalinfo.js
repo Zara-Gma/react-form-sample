@@ -8,7 +8,7 @@ import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
 import { Input } from "../components/Input";
 import {
-  Select, InputLabel, MenuItem
+  Select, InputLabel, MenuItem, RadioGroup, Radio, FormControlLabel
 } from "@material-ui/core";
 import * as yup from "yup";
 
@@ -16,7 +16,6 @@ import * as yup from "yup";
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 const schema = yup.object().shape({
-  //TODO error message not showing
   over18: yup
     .boolean()
     .oneOf([true], "Must be 18 or older to register"),
@@ -79,7 +78,7 @@ export const PersonalInfo = () => {
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <section>
+        {/* <section>
           <InputLabel htmlFor="over18-select">
             Are you at least 18 years of age? (Must be over 18 to register)
           </InputLabel>
@@ -92,6 +91,32 @@ export const PersonalInfo = () => {
                 <MenuItem value={6}>No</MenuItem>
               </Select>
             }
+          />
+        </section> */}
+        <section>
+          <label>Are you at least 18 years of age? (Must be over 18 to register)</label>
+          <Controller
+            as={
+              <RadioGroup aria-label="over18" name="over18">
+                <FormControlLabel
+                  ref={register}
+                  id="over18"
+                  name="over18"
+                  value="yes" label="Yes"
+                  control={<Radio />} required
+                />
+                <FormControlLabel
+                  ref={register}
+                  id="over18"
+                  name="over18"
+                  value="no"
+                  control={<Radio />}
+                  label="No" error={!!errors.over18} helperText={errors?.over18?.message} required
+                />
+              </RadioGroup>
+            }
+            name="RadioGroup"
+            control={control}
           />
         </section>
         <InputLabel htmlFor="experienceLevel-select">

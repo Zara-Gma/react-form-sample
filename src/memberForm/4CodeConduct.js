@@ -7,12 +7,14 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
 import {
-  Checkbox, InputLabel, Typography
+  Checkbox, Typography, InputLabel
 } from "@material-ui/core";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-
+  acceptTerms: yup
+    .boolean()
+    .oneOf([true], "You must accept the terms and conditions")
 })
 
 export const CodeOfConduct = () => {
@@ -29,7 +31,6 @@ export const CodeOfConduct = () => {
     history.push("./slackconduct");
     setValues(data);
   };
-
 
   return (
     <MainContainer>
@@ -52,17 +53,26 @@ export const CodeOfConduct = () => {
             <li>We reserve the right to remove and ban any persons who are not in compliance with our code of conduct.</li>
           </ul>
         </section>
-        <section>
+        {/* <div className="form-group form-check">
+          <InputLabel htmlFor="acceptTerms" className="checkbox">
+            Accept terms &amp; Conditions
+</InputLabel>
           <Controller
             as={Checkbox}
-            name="Checkbox"
+            name="acceptTerms"
+            id="acceptTerms"
             type="checkbox"
             control={control}
+            ref={register}
+            className={`form-check-input ${errors.acceptTerms ? 'is-invalid' : ''}`}
           />
-          <InputLabel htmlFor="accept-checkbox">
-            I agree to the terms and conditions
-          </InputLabel>
-        </section>
+          <div className="invalid-feedback">{errors.acceptTerms?.message}</div>
+        </div> */}
+        <div className="form-group form-check">
+          <input name="acceptTerms" type="checkbox" ref={register} id="acceptTerms" className={`form-check-input ${errors.acceptTerms ? 'is-invalid' : ''}`} />
+          <label for="acceptTerms" className="form-check-label">Accept Terms &amp; Conditions</label>
+          <div className="invalid-feedback">{errors.acceptTerms?.message}</div>
+        </div>
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>

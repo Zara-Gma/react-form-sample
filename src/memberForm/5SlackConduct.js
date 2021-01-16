@@ -12,7 +12,9 @@ import {
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-
+  acceptTerms: yup
+    .boolean()
+    .oneOf([true], "You must accept the terms and conditions")
 })
 
 export const SlackConduct = () => {
@@ -109,17 +111,11 @@ If a community member engages in unacceptable behavior, we may take any action d
           </ul>
         </section>
         <h4>EFFECTIVE DATE: 08.07.2020</h4>
-        <section>
-          <Controller
-            as={Checkbox}
-            name="Checkbox"
-            type="checkbox"
-            control={control}
-          />
-          <InputLabel htmlFor="accept-checkbox">
-            I agree to the terms and conditions
-          </InputLabel>
-        </section>
+        <div className="form-group form-check">
+          <input name="acceptTerms" type="checkbox" ref={register} id="acceptTerms" className={`form-check-input ${errors.acceptTerms ? 'is-invalid' : ''}`} />
+          <label for="acceptTerms" className="form-check-label">Accept Terms &amp; Conditions</label>
+          <div className="invalid-feedback">{errors.acceptTerms?.message}</div>
+        </div>
         <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>
