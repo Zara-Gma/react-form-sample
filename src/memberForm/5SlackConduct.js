@@ -1,13 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useData } from "../DataContext";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import { Form } from "../components/Form";
 import {
-  Checkbox, InputLabel, Typography
+  Typography
 } from "@material-ui/core";
 import * as yup from "yup";
 
@@ -20,7 +20,7 @@ const schema = yup.object().shape({
 export const SlackConduct = () => {
   const { setValues, data } = useData();
   const history = useHistory();
-  const { register, handleSubmit, control, errors } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     defaultValues: {
       slackAgreement: data.slackAgreement
     },

@@ -13,7 +13,6 @@ import {
 import "bootstrap/dist/css/bootstrap.css"
 import * as yup from "yup";
 
-//TODO update to library
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 const schema = yup.object().shape({
@@ -35,25 +34,12 @@ const schema = yup.object().shape({
     .string()
     .email("Email should have correct format")
     .required("Email is a required field"),
-  // TODO update to library version
   phoneNumber: yup
     .string()
     .matches(phoneRegExp, 'Phone number is not valid')
     .min(10, "to short")
     .max(10, "to long"),
-  //TODO add address
 })
-
-const validInputObj = {
-  over18: true
-};
-
-const invalidInputObj = {
-  over18: true
-};
-
-schema.isValid(validInputObj).then(isValid => console.log(isValid));   // true
-schema.isValid(invalidInputObj).then(isValid => console.log(isValid)); // false
 
 export const PersonalInfo = () => {
   const { setValues, data } = useData();
@@ -70,7 +56,7 @@ export const PersonalInfo = () => {
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     history.push("./identity");
     setValues(data);
   };

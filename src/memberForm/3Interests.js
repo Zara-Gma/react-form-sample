@@ -19,7 +19,7 @@ const schema = yup.object().shape({
 export const Interests = () => {
   const { setValues, data } = useData();
   const history = useHistory();
-  const { handleSubmit, control, register, errors } = useForm({
+  const { handleSubmit, control, register } = useForm({
     defaultValues: {
       interests: data.interests,
     },

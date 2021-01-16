@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Confetti from "react-confetti";
-import Swal from "sweetalert2";
+// import Confetti from "react-confetti";
+// import Swal from "sweetalert2";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { MainContainer } from "../components/MainContainer";
-import { PrimaryButton } from "../components/PrimaryButton";
+// import { PrimaryButton } from "../components/PrimaryButton";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({

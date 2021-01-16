@@ -28,7 +28,7 @@ const schema = yup.object().shape({
 export const Identity = () => {
   const { setValues, data } = useData();
   const history = useHistory();
-  const { register, handleSubmit, control, errors } = useForm({
+  const { register, handleSubmit, control } = useForm({
     defaultValues: {
       veteranStatus: data.veteranStatus,
       identify: data.identify,
