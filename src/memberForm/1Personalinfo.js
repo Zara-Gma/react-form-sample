@@ -10,6 +10,7 @@ import { Input } from "../components/Input";
 import {
   Select, InputLabel, MenuItem, RadioGroup, Radio, FormControlLabel
 } from "@material-ui/core";
+import "bootstrap/dist/css/bootstrap.css"
 import * as yup from "yup";
 
 //TODO update to library
@@ -18,7 +19,7 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 const schema = yup.object().shape({
   over18: yup
     .boolean()
-    .oneOf([true], "Must be 18 or older to register"),
+    .oneOf([false], "Must be 18 or older to register"),
   experienceLevel: yup
     .string(),
   firstName: yup
@@ -100,18 +101,18 @@ export const PersonalInfo = () => {
               <RadioGroup aria-label="over18" name="over18">
                 <FormControlLabel
                   ref={register}
-                  id="over18"
-                  name="over18"
+                  id="yes"
+                  name="yes"
                   value="yes" label="Yes"
                   control={<Radio />} required
                 />
                 <FormControlLabel
                   ref={register}
-                  id="over18"
-                  name="over18"
+                  id="no"
+                  name="no"
                   value="no"
                   control={<Radio />}
-                  label="No" error={!!errors.over18} helperText={errors?.over18?.message} required
+                  label="No" error={!!errors.over18} helperText={errors?.over18?.message}
                 />
               </RadioGroup>
             }
@@ -173,6 +174,6 @@ export const PersonalInfo = () => {
         />
         <PrimaryButton>Next</PrimaryButton>
       </Form>
-    </MainContainer>
+    </MainContainer >
   );
 }
