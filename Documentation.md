@@ -65,3 +65,7 @@ https://codesandbox.io/s/react-hook-form-get-started-forked-tixw8?file=/src/form
 # Remove message: "field" is missing in the 'defaultValue' prop of either its Controller #2990
 
 https://github.com/react-hook-form/react-hook-form/issues/2990
+
+# Re rendering
+
+https://spectrum.chat/react-hook-form/general/react-bootstrap~37f0e701-bd2b-46da-8d8e-c778c268bc74

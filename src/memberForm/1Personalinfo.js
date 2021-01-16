@@ -2,14 +2,17 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useData } from "../DataContext";
 import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
+import { yupResolver } from "@hookform/resolvers";
 import { MainContainer } from "../components/MainContainer";
-import { Form } from "../components/Form";
+// import { Form } from "../components/Form";
+import Form from 'react-bootstrap/Form'
 import { Input } from "../components/Input";
+import { Row, Col, Button } from 'react-bootstrap';
 import {
   Select, InputLabel, MenuItem, RadioGroup, Radio, FormControlLabel
 } from "@material-ui/core";
+// import { Row, Col, Button } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.css"
 import * as yup from "yup";
 
@@ -46,120 +49,62 @@ export const PersonalInfo = () => {
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      over18: data.over18,
-      experienceLevel: data.experienceLevel,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phoneNumber: data.phoneNumber
+      // over18: data.over18,
+      // experienceLevel: data.experienceLevel,
+      // firstName: data.firstName,
+      // lastName: data.lastName,
+      // email: data.email,
+      // phoneNumber: data.phoneNumber
     },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
   const onSubmit = () => {
+    console.log(onSubmit);
     history.push("./identity");
     setValues(data);
   };
 
-
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        {/* <section>
-          <InputLabel htmlFor="over18-select">
-            Are you at least 18 years of age? (Must be over 18 to register)
-          </InputLabel>
-          <Controller
-            control={control}
-            name="over18"
-            as={
-              <Select id="over18" name="over18" error={!!errors.over18} helperText={errors?.over18?.message} ref={register} required>
-                <MenuItem value={0}>Yes</MenuItem>
-                <MenuItem value={6}>No</MenuItem>
-              </Select>
-            }
-          />
-        </section> */}
-        <section>
-          <label>Are you at least 18 years of age? (Must be over 18 to register)</label>
-          <Controller
-            as={
-              <RadioGroup aria-label="over18" name="over18">
-                <FormControlLabel
-                  ref={register}
-                  id="yes"
-                  name="yes"
-                  value="yes" label="Yes"
-                  control={<Radio />} required
-                />
-                <FormControlLabel
-                  ref={register}
-                  id="no"
-                  name="no"
-                  value="no"
-                  control={<Radio />}
-                  label="No" error={!!errors.over18} helperText={errors?.over18?.message}
-                />
-              </RadioGroup>
-            }
-            name="RadioGroup"
-            control={control}
-          />
-        </section>
-        <InputLabel htmlFor="experienceLevel-select">
-          Experience Level
-          </InputLabel>
-        <Controller
-          control={control}
-          name="experienceLevel"
-          as={
-            <Select id="experienceLevel" name="experienceLevel" error={!!errors.experienceLevel} helperText={errors?.experienceLevel?.message} ref={register}>
-              <MenuItem value={0}>0-5 years</MenuItem>
-              <MenuItem value={6}>6-10 years</MenuItem>
-              <MenuItem value={11}>11-15 years</MenuItem>
-              <MenuItem value={16}>16 +years</MenuItem>
-            </Select>
-          }
-        />
-        <Input
-          ref={register}
-          id="firstName"
-          type="text"
-          label="First Name"
-          name="firstName"
-          error={!!errors.firstName}
-          helperText={errors?.firstName?.message}
-        />
-        <Input
-          ref={register}
-          id="lastName"
-          type="text"
-          label="Last Name"
-          name="lastName"
-          error={!!errors.lastName}
-          helperText={errors?.lastName?.message}
-        />
-        <Input
-          ref={register}
-          id="email"
-          type="email"
-          label="Email"
-          name="email"
-          error={!!errors.email}
-          helperText={errors?.email?.message}
-          required
-        />
-        <Input
-          ref={register}
-          id="phoneNumber"
-          type="tel"
-          label="Phone Number"
-          name="phoneNumber"
-          error={!!errors.phoneNumber}
-          helperText={errors?.phoneNumber?.message}
-        />
-        <PrimaryButton>Next</PrimaryButton>
-      </Form>
+        {/* UPDATE HERE */}
+
+
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Label>First name</Form.Label>
+            <Form.Control
+              required
+              ref={register}
+              id="firstName"
+              name="firstName"
+              type="text"
+              placeholder="First name"
+              error={!!errors.firstName}
+              helperText={errors?.firstName?.message}
+            />
+            {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+          </Form.Group>
+          <Form.Group as={Col} controlId="validationCustom02">
+            <Form.Label>Last name</Form.Label>
+            <Form.Control
+              required
+              ref={register}
+              id="lastName"
+              name="lastName"
+              type="text"
+              placeholder="Last name"
+              error={!!errors.lastName}
+              helperText={errors?.lastName?.message}
+            />
+            {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+          </Form.Group>
+        </Form.Row>
+        <Button>Next</Button>
+
+        {/* UPDATE HERE */}
+      </Form >
     </MainContainer >
   );
 }

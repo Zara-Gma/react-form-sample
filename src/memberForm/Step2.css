@@ -7,17 +7,17 @@
 body {
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
 
-.container,
+/* .container,
 form {
   max-width: 1100px;
   margin: 0 auto;
   margin-bottom: 45px;
-}
+} */
 
 h1 {
   text-align: center;
@@ -59,13 +59,13 @@ label {
   line-height: 2;
   text-align: left;
   display: block;
-  /* margin-bottom: 13px;
-  margin-top: 20px;  */
+  margin-bottom: 13px;
+  margin-top: 20px;
   font-size: 14px;
   font-weight: 200;
 }
 
-/* button[type="submit"],
+button[type="submit"],
 input[type="submit"] {
   background: #ec5990;
   text-transform: uppercase;
@@ -75,8 +75,7 @@ input[type="submit"] {
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 10px;
-} */
-/* 
+}
 button[type="submit"]:hover,
 input[type="submit"]:hover {
   background: #bf1650;
@@ -89,7 +88,7 @@ input[type="submit"]:active {
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
-} */
+}
 
 input:disabled {
   opacity: 0.4;
@@ -98,18 +97,18 @@ input:disabled {
 input[type="button"]:hover {
   transition: 0.3s all;
 }
-/* 
+
 button[type="submit"],
 input[type="button"],
 input[type="submit"] {
   -webkit-appearance: none;
-} */
+}
 
 .App {
   max-width: 600px;
   margin: 0 auto;
 }
-/* 
+
 button[type="button"] {
   display: block;
   appearance: none;
@@ -117,7 +116,7 @@ button[type="button"] {
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 4px;
-} */
+}
 
 hr {
   margin-top: 30px;
@@ -126,7 +125,7 @@ hr {
 h2 {
   font-weight: 200;
 }
-/* 
+
 button {
   display: block;
   appearance: none;
@@ -136,7 +135,7 @@ button {
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 4px;
-} */
+}
 
 pre {
   white-space: pre;
