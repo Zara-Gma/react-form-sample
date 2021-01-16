@@ -26,7 +26,7 @@ export const CodeOfConduct = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
-    history.push("./codeofconduct");
+    history.push("./slackconduct");
     setValues(data);
   };
 

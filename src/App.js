@@ -12,6 +12,7 @@ import { SlackConduct } from './memberForm/5SlackConduct';
 // import { Step7 } from './memberForm/Step7';
 // import { Step8 } from './memberForm/Step8';
 // import { Step9 } from './memberForm/Step9';
+import { Gender } from './memberForm/Gender';
 import { ThankYou } from './memberForm/6ThankYou';
 // import { Result } from "./memberForm/Result";
 import { Header } from "./components/Header";
@@ -64,6 +65,7 @@ const Pages = () => {
       <Route path="/interests" component={Interests} />
       <Route path="/codeofconduct" component={CodeOfConduct} />
       <Route path="/slackconduct" component={SlackConduct} />
+      <Route path="/gender" component={Gender} />
       {/* <Route path="/step6" component={Step6} />
       <Route path="/step7" component={Step7} />
       <Route path="/step8" component={Step8} />

@@ -6,9 +6,8 @@ import { yupResolver } from "@hookform/resolvers";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { MainContainer } from "../components/MainContainer";
 import ReactSelect from "react-select";
-import options from "../constants/veteranSelectOptions";
+import Veteran from "../constants/veteranSelectOptions";
 import { Form } from "../components/Form";
-import FormSelectAutoComplete from "../components/select-autocomplete";
 import {
   Checkbox,
   InputLabel
@@ -24,6 +23,7 @@ const schema = yup.object().shape({
   comment: yup.string()
     .min(3, "Must be at least 3 characters")
 })
+
 
 export const Identity = () => {
   const { setValues, data } = useData();
@@ -42,7 +42,6 @@ export const Identity = () => {
     setValues(data);
   };
 
-
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -51,7 +50,7 @@ export const Identity = () => {
           <label>Veteran Status</label>
           <Controller
             as={ReactSelect}
-            options={options}
+            veteran={Veteran}
             name="VeteranStatus"
             isClearable
             control={control}

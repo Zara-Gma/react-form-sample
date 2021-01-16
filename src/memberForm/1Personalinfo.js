@@ -18,8 +18,8 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 const schema = yup.object().shape({
   //TODO error message not showing
   over18: yup
-    .string()
-    .required("Please select your experience level"),
+    .boolean()
+    .oneOf([true], "Must be 18 or older to register"),
   experienceLevel: yup
     .string(),
   firstName: yup
@@ -44,6 +44,16 @@ const schema = yup.object().shape({
   //TODO add address
 })
 
+const validInputObj = {
+  over18: true
+};
+
+const invalidInputObj = {
+  over18: true
+};
+
+schema.isValid(validInputObj).then(isValid => console.log(isValid));   // true
+schema.isValid(invalidInputObj).then(isValid => console.log(isValid)); // false
 
 export const PersonalInfo = () => {
   const { setValues, data } = useData();

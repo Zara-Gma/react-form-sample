@@ -1,14 +1,5 @@
 # TODO
 
-Personal Information
-User - Identifying questions
-Interests
-Code of Conduct
-Slack community guidelines
-Confirmation page (result) - Not sure if it needs to be created
-Thank you (haven’t created it yet)
-
-0. Rename each step with a more descriptive name to help me remember what each step does
 1. Css Progress bar
 2. Maybe - Add conditional toggle are you over 18
    Show and Hide
@@ -20,6 +11,8 @@ Thank you (haven’t created it yet)
   https://www.npmjs.com/package/multiselect-react-dropdown
   https://www.ruth-ng.co.uk/how-to-ask-about-gender-in-forms-respectfully/
 - Looking to get out of this group (ex. networking, mentorship, learning new security tools/skills, etc.)
+  https://www.npmjs.com/package/react-multi-select-component
+  https://10xn41w767.codesandbox.io/
 
 5. Add Phone number library
    https://www.youtube.com/watch?v=CRxTfMy-V28
@@ -33,3 +26,10 @@ Thank you (haven’t created it yet)
 8. Agree to the terms then show next button
 9. Accept all then show submit button
 10. Run static code analysis
+
+TODO List
+Gender dropdown or checkbox
+https://www.ruth-ng.co.uk/how-to-ask-about-gender-in-forms-respectfully
+Phone number library
+Address google location
+https://www.solodev.com/blog/web-design/adding-an-auto-complete-address-field-to-your-forms.stml
