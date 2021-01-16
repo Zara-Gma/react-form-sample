@@ -44,7 +44,7 @@ export const Step7 = () => {
   });
   const hasPhone = watch("hasPhone");
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     console.log(data);
   };
 

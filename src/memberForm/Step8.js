@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { useData } from "../DataContext";
 import { yupResolver } from "@hookform/resolvers";
 import { useForm } from 'react-hook-form';
@@ -44,7 +43,7 @@ export const Step8 = () => {
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     console.log(data);
   };
 

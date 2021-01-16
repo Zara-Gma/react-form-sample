@@ -20,7 +20,7 @@ export const Step9 = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     console.log(data);
   };
 

@@ -62,7 +62,7 @@ export const Step6 = () => {
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     console.log(data);
   };
 
