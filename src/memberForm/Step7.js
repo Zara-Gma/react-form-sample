@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import { useData } from "../DataContext";
@@ -33,8 +32,7 @@ const normalizePhoneNumber = (value) => {
 };
 
 export const Step7 = () => {
-  const { setValues, data } = useData();
-  const history = useHistory();
+  const { data } = useData();
   const { register, handleSubmit, watch, errors } = useForm({
     defaultValues: {
       email: data.email,

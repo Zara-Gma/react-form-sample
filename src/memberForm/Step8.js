@@ -33,8 +33,7 @@ const schema = yup.object().shape({
 })
 
 export const Step8 = () => {
-  const { setValues, data } = useData();
-  const history = useHistory();
+  const { data } = useData();
   const { register, handleSubmit, errors } = useForm({
     defaultValues: {
       firstName: data.firstName,

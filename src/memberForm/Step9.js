@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers";
 import { useData } from "../DataContext";
 import * as yup from "yup";
@@ -12,8 +11,7 @@ const schema = yup.object().shape({
 })
 
 export const Step9 = () => {
-  const { setValues, data } = useData();
-  const history = useHistory();
+  const { data } = useData();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       veteranStatus: data.veteranStatus
