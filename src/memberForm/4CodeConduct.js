@@ -27,7 +27,7 @@ export const CodeOfConduct = () => {
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     history.push("./slackconduct");
     setValues(data);
   };

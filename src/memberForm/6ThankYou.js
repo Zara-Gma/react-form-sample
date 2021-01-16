@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 });
 
 export const ThankYou = () => {
-  const [success, setSuccess] = useState(false);
+  // const [success, setSuccess] = useState(false);
   const styles = useStyles();
 
   // const onSubmit = async () => {

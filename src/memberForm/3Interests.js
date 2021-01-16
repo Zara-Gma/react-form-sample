@@ -26,7 +26,7 @@ export const Interests = () => {
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     history.push("./codeofconduct");
     setValues(data);
   };

@@ -37,7 +37,7 @@ export const Identity = () => {
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     history.push("./interests");
     setValues(data);
   };

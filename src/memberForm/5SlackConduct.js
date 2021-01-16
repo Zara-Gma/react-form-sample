@@ -27,7 +27,7 @@ export const SlackConduct = () => {
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     history.push("./thankyou");
     setValues(data);
   };

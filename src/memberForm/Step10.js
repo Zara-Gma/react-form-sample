@@ -1,11 +1,10 @@
 // Multiselect dropdown 
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Form } from "../components/Form";
 import {
   Grid
 } from "@material-ui/core";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Multiselect } from 'multiselect-react-dropdown';
 import options from "../constants/veteranSelectOptions";
 import { yupResolver } from "@hookform/resolvers";
@@ -20,7 +19,7 @@ export const Step10 = () => {
   const methods = useForm({
     resolver: yupResolver(schema),
   });
-  const { handleSubmit, register, errors } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (data) => {
     console.log(data);
