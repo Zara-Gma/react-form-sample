@@ -57,3 +57,11 @@ https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r?file=/src/App.
 
 Multiselect
 https://codesandbox.io/s/10xn41w767?file=/src/index.js:0-10100
+
+# React Hook Form - Get Started
+
+https://codesandbox.io/s/react-hook-form-get-started-forked-tixw8?file=/src/form.js:1530-1966
+
+# Remove message: "field" is missing in the 'defaultValue' prop of either its Controller #2990
+
+https://github.com/react-hook-form/react-hook-form/issues/2990

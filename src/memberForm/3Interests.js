@@ -13,7 +13,7 @@ import {
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  //TODO error message not showing
+
 })
 
 export const Interests = () => {
@@ -31,7 +31,6 @@ export const Interests = () => {
     setValues(data);
   };
 
-
   return (
     <MainContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -41,7 +40,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             She/her
@@ -50,7 +49,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             He/him
@@ -59,7 +58,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             They/them
@@ -68,7 +67,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             I prefer not to say
@@ -88,7 +87,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
             Volunteering (general)
@@ -97,7 +96,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
             Advocacy
@@ -106,7 +105,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
             Career Coaching
@@ -115,7 +114,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
             Skill building/Training
@@ -124,7 +123,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
             Events
@@ -133,7 +132,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
             Community Service
@@ -142,7 +141,7 @@ export const Interests = () => {
             as={Checkbox}
             name="Checkbox"
             type="checkbox"
-            control={control}
+            control={control} defaultValue=""
           />
           <InputLabel htmlFor="interests-checkbox" className="checkbox">
             Volunteering with Cyberdei

@@ -15,13 +15,12 @@ import {
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  //TODO error message not showing
   veteranStatus: yup
     .string(),
   identify: yup
     .string(),
   comment: yup.string()
-    .min(3, "Must be at least 3 characters")
+    .min(10, "Must be at least 3 characters")
 })
 
 
@@ -54,6 +53,7 @@ export const Identity = () => {
             name="veteranStatus"
             isClearable
             control={control}
+            defaultValue=""
           />
         </section>
         <section>
@@ -63,6 +63,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             A woman
@@ -72,6 +73,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             A Man
@@ -81,6 +83,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             A woman
@@ -90,6 +93,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Non-binary
@@ -99,6 +103,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             LGBTQIA+
@@ -108,6 +113,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Black or African American
@@ -117,6 +123,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Indigenous
@@ -126,6 +133,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             A person of color
@@ -135,6 +143,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Hispanic
@@ -144,6 +153,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Latinx
@@ -153,6 +163,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Asian / Pacific Islander
@@ -162,6 +173,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Middle Eastern
@@ -171,6 +183,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             White / Caucasian
@@ -180,6 +193,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             An immigrant
@@ -189,6 +203,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Multiracial
@@ -198,6 +213,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             A parent
@@ -207,6 +223,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Disabled
@@ -216,6 +233,7 @@ export const Identity = () => {
             name="Checkbox"
             type="checkbox"
             control={control}
+            defaultValue=""
           />
           <InputLabel htmlFor="identify-checkbox" className="checkbox">
             Other

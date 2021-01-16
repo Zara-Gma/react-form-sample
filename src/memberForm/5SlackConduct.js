@@ -113,7 +113,7 @@ If a community member engages in unacceptable behavior, we may take any action d
         <h4>EFFECTIVE DATE: 08.07.2020</h4>
         <div className="form-group form-check">
           <input name="acceptTerms" type="checkbox" ref={register} id="acceptTerms" className={`form-check-input ${errors.acceptTerms ? 'is-invalid' : ''}`} />
-          <label for="acceptTerms" className="form-check-label">Accept Terms &amp; Conditions</label>
+          <label htmlFor="acceptTerms" className="form-check-label">Accept Terms &amp; Conditions</label>
           <div className="invalid-feedback">{errors.acceptTerms?.message}</div>
         </div>
         <PrimaryButton>Next</PrimaryButton>

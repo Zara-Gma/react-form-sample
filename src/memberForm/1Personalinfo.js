@@ -18,7 +18,7 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 const schema = yup.object().shape({
   over18: yup
     .boolean()
-    .oneOf([false], "Must be 18 or older to register"),
+    .oneOf([true], "Must be 18 or older to register"),
   experienceLevel: yup
     .string(),
   firstName: yup
