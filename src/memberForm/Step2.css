@@ -65,7 +65,7 @@ label {
   font-weight: 200;
 }
 
-button[type="submit"],
+/* button[type="submit"],
 input[type="submit"] {
   background: #ec5990;
   text-transform: uppercase;
@@ -75,12 +75,12 @@ input[type="submit"] {
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 10px;
-}
-button[type="submit"]:hover,
+} */
+/* button[type="submit"]:hover,
 input[type="submit"]:hover {
   background: #bf1650;
-}
-
+} */
+/* 
 button[type="submit"]:active,
 input[type="button"]:active,
 input[type="submit"]:active {
@@ -88,7 +88,7 @@ input[type="submit"]:active {
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
-}
+} */
 
 input:disabled {
   opacity: 0.4;
@@ -98,25 +98,25 @@ input[type="button"]:hover {
   transition: 0.3s all;
 }
 
-button[type="submit"],
+/* button[type="submit"],
 input[type="button"],
 input[type="submit"] {
   -webkit-appearance: none;
-}
+} */
 
 .App {
   max-width: 600px;
   margin: 0 auto;
 }
 
-button[type="button"] {
+/* button[type="button"] {
   display: block;
   appearance: none;
   border: none;
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 4px;
-}
+} */
 
 hr {
   margin-top: 30px;
