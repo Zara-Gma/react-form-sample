@@ -1,147 +1,206 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React from 'react';
 import { useData } from "../DataContext";
-import { useForm, Controller } from "react-hook-form";
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import {
+  Avatar,
+  Box,
+  Button,
+  Checkbox,
+  CssBaseline,
+  Container,
+  FormControlLabel,
+  Grid,
+  InputLabel,
+  Link,
+  makeStyles,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+  Radio,
+  RadioGroup
+} from "@material-ui/core";
+import { Controller, useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers";
-import "bootstrap/dist/css/bootstrap.css";
-import { ErrorMessage } from '@hookform/error-message';
 import * as yup from "yup";
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
-// const schema = yup.object().shape({
-//   over18: yup
-//     .boolean()
-//     .oneOf([true], "Must be 18 or older to register"),
-//   experienceLevel: yup
-//     .string(),
-//   firstName: yup
-//     .string().required("First name is a required field")
-//     .matches(/^([^0-9]*)$/, "First name should not contain numbers")
-//     .min(2, "Name must be at least 2 characters"),
-//   lastName: yup
-//     .string()
-//     .matches(/^([^0-9]*)$/, "Last name should not contain numbers")
-//     .required("Last name is a required field")
-//     .min(2, "Name must be at least 2 characters"),
-//   email: yup
-//     .string()
-//     .email("Email should have correct format")
-//     .required("Email is a required field"),
-//   phoneNumber: yup
-//     .string()
-//     .matches(phoneRegExp, 'Phone number is not valid')
-//     .min(10, "to short")
-//     .max(10, "to long"),
-// })
+const schema = yup.object().shape({
+  over18: yup
+    .boolean()
+    .oneOf([true], "Must be 18 or older to register"),
+  experienceLevel: yup
+    .string(),
+  firstName: yup
+    .string().required("First name is a required field")
+    .matches(/^([^0-9]*)$/, "First name should not contain numbers")
+    .min(2, "Name must be at least 2 characters"),
+  lastName: yup
+    .string()
+    .matches(/^([^0-9]*)$/, "Last name should not contain numbers")
+    .required("Last name is a required field")
+    .min(2, "Name must be at least 2 characters"),
+  email: yup
+    .string()
+    .email("Email should have correct format")
+    .required("Email is a required field"),
+  phoneNumber: yup
+    .string()
+    .matches(phoneRegExp, 'Phone number is not valid')
+    .min(10, "to short")
+    .max(10, "to long"),
+})
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
 export const PersonalInfo = () => {
+  const classes = useStyles();
   const { setValues, data } = useData();
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
     defaultValues: {
-      // over18: data.over18,
-      // experienceLevel: data.experienceLevel,
+      over18: data.over18,
+      experienceLevel: data.experienceLevel,
       firstName: data.firstName,
       lastName: data.lastName,
-      // email: data.email,
-      // phoneNumber: data.phoneNumber
+      email: data.email,
+      phoneNumber: data.phoneNumber
     },
     mode: "onBlur",
-    // resolver: yupResolver(schema),
+    resolver: yupResolver(schema),
   });
   const onSubmit = () => {
-    console.log(onSubmit);
     history.push("./identity");
     setValues(data);
   };
 
   return (
-    <div className="container">
-      <div className="row mb-5">
-        <div className="col-lg-12 text-center">
-          <h1 className="mt-5">Login form with React Hook Form</h1>
-        </div>
+    <Container component="main" maxWidth="sm">
+      <CssBaseline />
+
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign up
+        </Typography>
+        <form className={classes.form} noValidate>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <p>Are you at least 18 years of age? (Must be over 18 to register)</p>
+              <Controller
+                as={
+                  <RadioGroup aria-label="over18" name="over18" row>
+                    <FormControlLabel
+                      ref={register}
+                      id="true"
+                      name="true"
+                      value="true" label="Yes"
+                      control={<Radio />} required
+                    />
+                    <FormControlLabel
+                      ref={register}
+                      id="false"
+                      name="false"
+                      value="false"
+                      control={<Radio />}
+                      label="No" error={!!errors.over18} helperText={errors?.over18?.message}
+                    />
+                  </RadioGroup>
+                }
+                name="RadioGroup"
+                control={control}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="fname"
+                name="firstName"
+                variant="outlined"
+                required
+                fullWidth
+                id="firstName"
+                label="First Name"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                name="lastName"
+                autoComplete="lname"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign Up
+          </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Link href="#" variant="body2">
+                Already have an account? Sign in
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-row">
-          <div className="form-group col-lg-12">
-            <p>Are you at least 18 years of age? (Must be at least 18 to register)</p>
-            <div className="form-check form-check-inline">
-              <div className="custom-control custom-radio custom-control-inline">
-                <label htmlFor="over18" className="custom-control-label" for="customRadioInline1">Yes</label>
-                <input
-                  ref={register}
-                  id="over18"
-                  type="radio"
-                  name="over18"
-                  className="custom-control-input"
-                  value="yes"
-                />
-              </div>
-              <div className="custom-control custom-radio custom-control-inline">
-                <label htmlFor="over18" className="custom-control-label" for="customRadioInline1">No</label>
-                <input
-                  ref={register}
-                  id="over18"
-                  type="radio"
-                  name="over18"
-                  className="custom-control-input"
-                  value="no"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="firstName">First Name</label>
-            <input
-              ref={register}
-              id="firstName"
-              type="text"
-              label="First Name"
-              name="firstName"
-              placeholder="Enter First Name"
-              error={!!errors.firstName}
-              helperText={errors?.firstName?.message}
-            />
-            {/* <ErrorMessage className="invalid-feedback" name="firstName" as="div" errors={errors} /> */}
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              ref={register}
-              id="lastName"
-              type="text"
-              label="Last Name"
-              name="lastName"
-              placeholder="Enter Last Name"
-              error={!!errors.lastName}
-              helperText={errors?.lastName?.message}
-            />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter email"
-          />
-        </div>
-        <div className="form-row">
-          <div className="form-group col-lg-12">
-            <label htmlFor="address">Address</label>
-            <input
-              ref={register}
-              id="address"
-              type="text"
-              label="Address"
-              name="address"
-              placeholder="1234 Main St"
-            />
-          </div>
-        </div>
-        <button className="btn btn-secondary btn-block" type="submit">Next</button>
-      </form>
-    </div>
+      <Box mt={5}>
+
+      </Box>
+    </Container>
   );
-};
+}

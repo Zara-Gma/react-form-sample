@@ -1,6 +1,9 @@
 # TODO
 
+0. Import google font
+   https://fonts.google.com/
 1. Css Progress bar
+   https://codepen.io/peruvianidol/pen/NLMvqO
 2. Validation over18
    https://app.pluralsight.com/guides/how-to-show-and-hide-reactjs-components
    https://codesandbox.io/s/react-hook-form-conditional-inputs-c7n0r
