@@ -1,28 +1,16 @@
-import React from 'react';
-import { useData } from "../DataContext";
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import {
-  Avatar,
-  Box,
-  Button,
-  Checkbox,
-  CssBaseline,
-  Container,
-  FormControlLabel,
-  Grid,
-  InputLabel,
-  Link,
-  makeStyles,
-  MenuItem,
-  Select,
-  TextField,
-  Typography,
-  Radio,
-  RadioGroup
-} from "@material-ui/core";
-import { Controller, useForm } from "react-hook-form";
+import React from "react";
 import { useHistory } from "react-router-dom";
+import { useData } from "../DataContext";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
+import { PrimaryButton } from "../components/PrimaryButton";
+import { MainContainer } from "../components/MainContainer";
+import { Form } from "../components/Form";
+import { Input } from "../components/Input";
+import {
+  Select, InputLabel, MenuItem, RadioGroup, Radio, FormControlLabel
+} from "@material-ui/core";
+import "bootstrap/dist/css/bootstrap.css"
 import * as yup from "yup";
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -53,28 +41,7 @@ const schema = yup.object().shape({
     .max(10, "to long"),
 })
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
 export const PersonalInfo = () => {
-  const classes = useStyles();
   const { setValues, data } = useData();
   const history = useHistory();
   const { register, handleSubmit, control, errors } = useForm({
@@ -94,113 +61,105 @@ export const PersonalInfo = () => {
     setValues(data);
   };
 
+
   return (
-    <Container component="main" maxWidth="sm">
-      <CssBaseline />
-
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <p>Are you at least 18 years of age? (Must be over 18 to register)</p>
-              <Controller
-                as={
-                  <RadioGroup aria-label="over18" name="over18" row>
-                    <FormControlLabel
-                      ref={register}
-                      id="true"
-                      name="true"
-                      value="true" label="Yes"
-                      control={<Radio />} required
-                    />
-                    <FormControlLabel
-                      ref={register}
-                      id="false"
-                      name="false"
-                      value="false"
-                      control={<Radio />}
-                      label="No" error={!!errors.over18} helperText={errors?.over18?.message}
-                    />
-                  </RadioGroup>
-                }
-                name="RadioGroup"
-                control={control}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-
-      </Box>
-    </Container>
+    <MainContainer>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        {/* <section>
+          <InputLabel htmlFor="over18-select">
+            Are you at least 18 years of age? (Must be over 18 to register)
+          </InputLabel>
+          <Controller
+            control={control}
+            name="over18"
+            as={
+              <Select id="over18" name="over18" error={!!errors.over18} helperText={errors?.over18?.message} ref={register} required>
+                <MenuItem value={0}>Yes</MenuItem>
+                <MenuItem value={6}>No</MenuItem>
+              </Select>
+            }
+          />
+        </section> */}
+        <section>
+          <label>Are you at least 18 years of age? (Must be over 18 to register)</label>
+          <Controller
+            as={
+              <RadioGroup aria-label="over18" name="over18">
+                <FormControlLabel
+                  ref={register}
+                  id="yes"
+                  name="yes"
+                  value="yes" label="Yes"
+                  control={<Radio />} required
+                />
+                <FormControlLabel
+                  ref={register}
+                  id="no"
+                  name="no"
+                  value="no"
+                  control={<Radio />}
+                  label="No" error={!!errors.over18} helperText={errors?.over18?.message}
+                />
+              </RadioGroup>
+            }
+            name="RadioGroup"
+            control={control}
+          />
+        </section>
+        <InputLabel htmlFor="experienceLevel-select">
+          Experience Level
+          </InputLabel>
+        <Controller
+          control={control}
+          name="experienceLevel"
+          as={
+            <Select id="experienceLevel" name="experienceLevel" error={!!errors.experienceLevel} helperText={errors?.experienceLevel?.message} ref={register}>
+              <MenuItem value={0}>0-5 years</MenuItem>
+              <MenuItem value={6}>6-10 years</MenuItem>
+              <MenuItem value={11}>11-15 years</MenuItem>
+              <MenuItem value={16}>16 +years</MenuItem>
+            </Select>
+          }
+        />
+        <Input
+          ref={register}
+          id="firstName"
+          type="text"
+          label="First Name"
+          name="firstName"
+          error={!!errors.firstName}
+          helperText={errors?.firstName?.message}
+        />
+        <Input
+          ref={register}
+          id="lastName"
+          type="text"
+          label="Last Name"
+          name="lastName"
+          error={!!errors.lastName}
+          helperText={errors?.lastName?.message}
+        />
+        <Input
+          ref={register}
+          id="email"
+          type="email"
+          label="Email"
+          name="email"
+          error={!!errors.email}
+          helperText={errors?.email?.message}
+          required
+        />
+        <Input
+          ref={register}
+          id="phoneNumber"
+          type="tel"
+          label="Phone Number"
+          name="phoneNumber"
+          error={!!errors.phoneNumber}
+          helperText={errors?.phoneNumber?.message}
+        />
+        <PrimaryButton>Next</PrimaryButton>
+      </Form>
+    </MainContainer >
   );
 }
